@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookish Haven - Книжковий магазин</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #F0F8FF;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            background-color: #E6F3FF !important;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #4682B4 !important;
+        }
+
+        .nav-link:hover {
+            color: #87CEEB !important;
+        }
+
+        .hero-section {
+            background-color: #E6F3FF;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: 0 0 2rem 2rem;
+        }
+
+        .hero-title {
+            color: #4682B4;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            color: #87CEEB;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            border-radius: 1.3em;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background-color: #E6F3FF;
+            margin-bottom: 2rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #B0E0E6;
+        }
+
+        .book-item:last-child {
+            border-bottom: none;
+        }
+
+        .book-price {
+            color: #4682B4;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #87CEEB;
+            border: none;
+            border-radius: 1.3em;
+            padding: 0.5em 1.5em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #4682B4;
+            transform: scale(1.05);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: #87CEEB;
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            border-radius: 1.3em;
+            border: 2px solid #E6F3FF;
+            padding: 0.8em;
+        }
+
+        .form-control:focus {
+            border-color: #87CEEB;
+            box-shadow: 0 0 0 0.2rem rgba(135, 206, 235, 0.25);
+        }
+
+        footer {
+            background-color: #E6F3FF !important;
+            color: #4682B4 !important;
+            margin-top: 4rem;
+        }
+
+        .social-links a {
+            color: #87CEEB !important;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: #4682B4 !important;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand"><i class="fas fa-book"></i> Bookish Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="scrollToSection('home')">Головна</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" data-bs-toggle="dropdown">
+                            Каталог
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" onclick="scrollToSection('fiction')">Художня література</a></li>
+                            <li><a class="dropdown-item" onclick="scrollToSection('non-fiction')">Нон-фікшн</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="scrollToSection('subscription')">Передплата</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Bookish Haven</h1>
+            <p class="hero-subtitle">Ваш затишний книжковий простір</p>
+            <button class="btn btn-primary" onclick="scrollToSection('subscription')">Оформити передплату</button>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-md-4">
+                <i class="fas fa-shipping-fast feature-icon"></i>
+                <h4>Безкоштовна доставка</h4>
+                <p>При замовленні від 500 грн</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-book-reader feature-icon"></i>
+                <h4>Книжковий клуб</h4>
+                <p>Щотижневі зустрічі</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-percentage feature-icon"></i>
+                <h4>Програма лояльності</h4>
+                <p>Знижки для постійних клієнтів</p>
+            </div>
+        </div>
+
+        <section id="fiction" class="mb-5">
+            <h3 class="text-center mb-4">Художня література</h3>
+            <div class="card">
+                <div class="card-body">
+                    <div class="book-item">
+                        <span>Джейн Остін "Гордість та упередження"</span>
+                        <span class="book-price">299 ₴</span>
+                    </div>
+                    <div class="book-item">
+                        <span>Маркус Зузак "Крадійка книжок"</span>
+                        <span class="book-price">349 ₴</span>
+                    </div>
+                    <div class="book-item">
+                        <span>Донна Тартт "Щиголь"</span>
+                        <span class="book-price">399 ₴</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="non-fiction" class="mb-5">
+            <h3 class="text-center mb-4">Нон-фікшн</h3>
+            <div class="card">
+                <div class="card-body">
+                    <div class="book-item">
+                        <span>Юваль Ной Харарі "Sapiens"</span>
+                        <span class="book-price">449 ₴</span>
+                    </div>
+                    <div class="book-item">
+                        <span>Малкольм Гладуелл "Переломний момент"</span>
+                        <span class="book-price">379 ₴</span>
+                    </div>
+                    <div class="book-item">
+                        <span>Деніел Канеман "Мислення швидке й повільне"</span>
+                        <span class="book-price">429 ₴</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="subscription" class="mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-center">Оформити передплату</h3>
+                    <form id="subscriptionForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Ваше ім'я">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-control">
+                                <option>Оберіть план передплати</option>
+                                <option>1 місяць - 299 ₴</option>
+                                <option>3 місяці - 799 ₴</option>
+                                <option>6 місяців - 1499 ₴</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary" onclick="showSubscriptionSuccess()">
+                                Оформити передплату <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Bookish Haven</h5>
+                    <p>Ваш провідник у світ літератури</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакти</h5>
+                    <p><i class="fas fa-envelope"></i> info@bookishhaven.com</p>
+                    <p><i class="fas fa-phone"></i> +380 44 123 45 67</p>
+                    <p><i class="fas fa-map-marker-alt"></i> вул. Книжкова, 42</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Соціальні мережі</h5>
+                    <div class="social-links">
+                        <a class="me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a class="me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a class="me-3"><i class="fab fa-telegram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <small>&copy; 2024 Bookish Haven. Усі права захищені.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showSubscriptionSuccess() {
+            document.getElementById('subscriptionForm').reset();
+            alert('Дякуємо за підписку! Ми зв\'яжемося з вами найближчим часом.');
+        }
+    </script>
+</body>
+</html>
